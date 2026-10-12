@@ -1,0 +1,30 @@
+node_modules
+# pnpm 的内容寻址存储：体积上百 MB，绝不能进版本库
+.pnpm-store
+dist
+dist-ssr
+*.local
+.DS_Store
+.idea
+.vscode/*
+!.vscode/extensions.json
+*.log
+# 编辑器/系统杂物
+Thumbs.db
+*.tmp
+*.tmpdir
+
+# 密钥：绝不进版本库（任何含 key/apikey 字样的文件一律忽略）
+DeepSeekapikey.txt
+*apikey*
+*.key
+.env
+.env.*
+
+# Local verification outputs and temporary files
+/output/
+/tmp/
+
+# Android signing credentials
+*.jks
+*.keystore

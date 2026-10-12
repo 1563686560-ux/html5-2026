@@ -1,0 +1,193 @@
+/**
+ * 基础样式与移动端适配
+ * ------------------------------------------------------------------
+ * 这里集中处理「移动前端」的通用问题：安全区、视口高度、点击延迟、
+ * 双击缩放、滚动穿透、惯性滚动、字体渲染。
+ */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  /* 消除移动端点击时的蓝色高亮块 */
+  -webkit-tap-highlight-color: transparent;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+html {
+  /* 阻止 iOS 横屏时自动放大字号 */
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text-1);
+  font-family:
+    -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+  font-size: var(--fs-md);
+  line-height: 1.55;
+  letter-spacing: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* 防止整页橡皮筋滚动与滚动穿透 */
+  overscroll-behavior-y: none;
+  /* 文本默认不可选，交互更像原生 App；正文内容单独放开 */
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+#app {
+  /* dvh 跟随移动端地址栏伸缩，避免 100vh 导致的高度跳动 */
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
+/* 手机界面共用的留白、标题层次与安全区。 */
+.shell .page > .head {
+  padding-left: max(20px, var(--safe-left));
+  padding-right: max(20px, var(--safe-right));
+  padding-top: 24px;
+  padding-bottom: 22px;
+}
+.shell .page > .head .title {
+  font-size: 1.625rem;
+  letter-spacing: -0.025em;
+}
+.shell .page > .head .subtitle {
+  font-size: 0.8125rem;
+  line-height: 1.65;
+}
+.shell .page > .section.safe-x {
+  padding-left: max(20px, var(--safe-left));
+  padding-right: max(20px, var(--safe-right));
+}
+.shell .page .back {
+  width: 42px;
+  height: 42px;
+  border-radius: 14px;
+}
+.shell .page :is(.primary-btn, .start-btn, .train-btn, .outline-btn, .ghost-btn, .answer) {
+  min-height: 44px;
+}
+@media (pointer: coarse) {
+  .shell input:not([type='range']),
+  .shell textarea,
+  .shell select {
+    font-size: 16px;
+  }
+}
+@media (max-width: 350px) {
+  .shell .page > .head,
+  .shell .page > .section.safe-x {
+    padding-left: max(14px, var(--safe-left));
+    padding-right: max(14px, var(--safe-right));
+  }
+}
+
+/* 允许选中的内容类型 */
+.selectable,
+input,
+textarea,
+pre,
+code {
+  -webkit-user-select: text;
+  user-select: text;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  border: none;
+  background: none;
+  padding: 0;
+  cursor: pointer;
+  /* 消除移动端 300ms 点击延迟 */
+  touch-action: manipulation;
+}
+
+a {
+  color: var(--brand);
+  text-decoration: none;
+}
+
+:focus-visible {
+  outline: 2px solid var(--brand);
+  outline-offset: 3px;
+}
+
+input,
+textarea {
+  font: inherit;
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* 滚动容器：开启惯性滚动，隐藏滚动条 */
+.scroll-y {
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+  scrollbar-width: none;
+}
+
+.scroll-y::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+/* 让元素支持安全区，页面内容不会被刘海或手势条遮挡 */
+.safe-x {
+  padding-left: var(--safe-left);
+  padding-right: var(--safe-right);
+}
+
+/*
+ * 横屏适配。
+ * 手机横过来后宽度富余、纵向空间变紧：不限宽的话正文行长会拉到 700px 以上，
+ * 眼睛扫行明显更累；所以矮屏横屏时把应用整体限宽居中，两侧留白。
+ * 横向的安全区（刘海在侧边）已由上面的 .safe-x 处理。
+ */
+@media (orientation: landscape) and (max-height: 560px) {
+  #app {
+    max-width: 760px;
+    margin-inline: auto;
+  }
+}
+
+/* 无障碍：仅供屏幕阅读器 */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* 尊重系统的「减弱动效」偏好 */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

@@ -1,0 +1,171 @@
+/* 手机端双主题：默认深蓝科技，亮色为明亮专业。 */
+:root {
+  color-scheme: dark;
+  --bg: #081326;
+  --bg-glow: #173b54;
+  --surface-1: #112039;
+  --surface-2: #162943;
+  --surface-3: #20354f;
+  --border: #243751;
+  --border-strong: #45617b;
+  --text-1: #edf5ff;
+  --text-2: #b8c8de;
+  --text-3: #9aaec9;
+  --brand: #65e3df;
+  --brand-2: #9cb4ff;
+  --brand-action: #65e3df;
+  --brand-on: #08262b;
+  --brand-soft: #163b49;
+  --glass: #112039;
+  --glass-strong: #112039;
+  --tech-cyan: #65e3df;
+  --tech-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+  --danger: #ff9fa8;
+  --success: #81dbb1;
+  --warning: #efc58c;
+  --accent-warm: #c6afff;
+  --chart-history: #65e3df;
+  --chart-fitted: #efc58c;
+  --chart-forecast: #b5a0ff;
+  --sp-1: 4px;
+  --sp-2: 8px;
+  --sp-3: 12px;
+  --sp-4: 16px;
+  --sp-5: 24px;
+  --sp-6: 32px;
+  --fs-xs: 0.75rem;
+  --fs-sm: 0.875rem;
+  --fs-md: 1rem;
+  --fs-lg: 1.1875rem;
+  --fs-xl: 1.625rem;
+  --r-sm: 13px;
+  --r-md: 19px;
+  --r-lg: 24px;
+  --r-full: 999px;
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-right: env(safe-area-inset-right, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+  --safe-left: env(safe-area-inset-left, 0px);
+  --kb-inset: 0px;
+  --tabbar-h: 66px;
+  --header-h: 60px;
+  --dur-fast: 140ms;
+  --dur: 220ms;
+  --dur-slow: 400ms;
+  --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+html[data-theme='light'] {
+  color-scheme: light;
+  --bg: #f5f6fb;
+  --bg-glow: #e6eafb;
+  --surface-1: #ffffff;
+  --surface-2: #edf0fb;
+  --surface-3: #e3e8f6;
+  --border: #e1e6f0;
+  --border-strong: #b5c0d9;
+  --text-1: #202b43;
+  --text-2: #52617b;
+  --text-3: #68758c;
+  --brand: #5264d9;
+  --brand-2: #8165d2;
+  --brand-action: #5264d9;
+  --brand-on: #ffffff;
+  --brand-soft: #e9ecfc;
+  --glass: #ffffff;
+  --glass-strong: #ffffff;
+  --tech-cyan: #5264d9;
+  --tech-shadow: 0 10px 28px rgba(36, 51, 92, 0.045);
+  --danger: #b9344c;
+  --success: #217353;
+  --warning: #936014;
+  --accent-warm: #8165d2;
+  --chart-history: #5264d9;
+  --chart-fitted: #936014;
+  --chart-forecast: #8165d2;
+}
+html[data-style='aurora'] {
+  --bg: #181126;
+  --bg-glow: #39234f;
+  --surface-1: #241b36;
+  --surface-2: #302341;
+  --surface-3: #403052;
+  --border: #493557;
+  --border-strong: #806295;
+  --text-1: #f7efff;
+  --text-2: #d4c3e4;
+  --text-3: #bba6cd;
+  --brand: #d3b0ff;
+  --brand-2: #f5add7;
+  --brand-action: #d3b0ff;
+  --brand-on: #271038;
+  --brand-soft: #42294f;
+  --glass: #241b36;
+  --glass-strong: #241b36;
+  --tech-cyan: #d3b0ff;
+  --accent-warm: #f5add7;
+  --chart-history: #d3b0ff;
+  --chart-fitted: #efc58c;
+  --chart-forecast: #f5add7;
+}
+html[data-style='cream'] {
+  --bg: #fff8ef;
+  --bg-glow: #fbe8d3;
+  --surface-1: #fffdf9;
+  --surface-2: #faeee0;
+  --surface-3: #f2dfcb;
+  --border: #e8d6c3;
+  --border-strong: #bfa28a;
+  --text-1: #3c2b21;
+  --text-2: #735745;
+  --text-3: #81624d;
+  --brand: #a74713;
+  --brand-2: #936337;
+  --brand-action: #a74713;
+  --brand-on: #ffffff;
+  --brand-soft: #f9e5d4;
+  --glass: #fffdf9;
+  --glass-strong: #fffdf9;
+  --tech-cyan: #a74713;
+  --accent-warm: #9a4c75;
+  --chart-history: #a74713;
+  --chart-fitted: #6e7330;
+  --chart-forecast: #9a4c75;
+}
+html[data-style='emerald'] {
+  --bg: #f2f8f5;
+  --bg-glow: #dcefe5;
+  --surface-1: #ffffff;
+  --surface-2: #e6f2eb;
+  --surface-3: #d5e9de;
+  --border: #cfdfd6;
+  --border-strong: #97b7a6;
+  --text-1: #203c31;
+  --text-2: #4d6a5d;
+  --text-3: #5b7568;
+  --brand: #197655;
+  --brand-2: #397d83;
+  --brand-action: #197655;
+  --brand-on: #ffffff;
+  --brand-soft: #ddefe5;
+  --glass: #ffffff;
+  --glass-strong: #ffffff;
+  --tech-cyan: #197655;
+  --accent-warm: #7660a0;
+  --chart-history: #197655;
+  --chart-fitted: #936014;
+  --chart-forecast: #7660a0;
+}
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --dur-fast: 1ms;
+    --dur: 1ms;
+    --dur-slow: 1ms;
+  }
+}
+@media (prefers-contrast: more) {
+  :root {
+    --text-2: var(--text-1);
+    --text-3: var(--text-1);
+    --border: var(--border-strong);
+  }
+}
